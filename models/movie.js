@@ -1,4 +1,4 @@
-module.exports.Movie =  class Movie {
+module.exports = class Movie {
     constructor(id, title, tagline, vote_average, vote_count, release_date, poster_path, overview,
                 budget, revenue, genres, runtime) {
 
