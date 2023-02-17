@@ -41,3 +41,19 @@ exports.getMovieListItems = (req, response) => {
         response.json(movies);
     })
 }
+
+exports.getMovieById = (req, response) => {
+    axios.get('https://api.kinopoisk.dev/movie', {
+        params: {
+            token: 'ZQQ8GMN-TN54SGK-NB3MKEC-ZKB8V06',
+            selectFields: 'genres name alternativeName year movieLength id poster.previewUrl',
+            field: 'id',
+            search: req.params.id
+        }
+    }).then(res => {
+        let m = res.data;
+        let movieListItem = new MovieListItem(m.genres.map(g => g.name), m.name, m.alternativeName, m.year,
+            m.movieLength, m.id, m.poster.previewUrl);
+        response.json(movieListItem);
+    })
+}
