@@ -1,5 +1,5 @@
 module.exports = class MovieListItem {
-    constructor(genres, name, alternativeName, year, movieLength, id, previewUrl) {
+    constructor(genres, name, alternativeName, year, movieLength, id, previewUrl, countries) {
         this._genres = genres;
         this._title = name;
         this._alternativeName = alternativeName;
@@ -7,8 +7,17 @@ module.exports = class MovieListItem {
         this._runtime = movieLength;
         this._id = id;
         this._poster_path = previewUrl;
+        this._countries = countries;
     }
 
+
+    get countries() {
+        return this._countries;
+    }
+
+    set countries(value) {
+        this._countries = value;
+    }
 
     get previewUrl() {
         return this._poster_path;

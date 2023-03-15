@@ -4,7 +4,7 @@ const MovieListItem = require("../models/movieListItem");
 exports.getAll = (req, response) => {
     axios.get('https://api.kinopoisk.dev/movie', {
         params: {
-            token: '68GHZCT-9P744TW-PATFQBS-E8M9YA9',
+            token: 'ZKQSQM2-H8DMP6W-JA19DEP-RSBCV3M',
             search: '7-10',
             field: 'rating.kp',
             limit: '100',
@@ -22,36 +22,36 @@ exports.getAll = (req, response) => {
 }
 
 exports.getMovieListItems = (req, response) => {
-    axios.get('https://api.kinopoisk.dev/movie', {
+    axios.get('https://api.kinopoisk.dev/v1/movie', {
         params: {
-            token: 'ZQQ8GMN-TN54SGK-NB3MKEC-ZKB8V06',
+            token: 'ZKQSQM2-H8DMP6W-JA19DEP-RSBCV3M',
             search: '7-10',
             field: 'rating.kp',
             limit: '100',
             sortField: 'votes.imdb',
             sortType: '-1',
-            selectFields: 'genres name alternativeName year movieLength id poster.previewUrl'
+            selectFields: 'genres name alternativeName year movieLength id poster.previewUrl countries.name'
         }
     }).then(res => {
         let movies = [];
         res.data.docs.forEach(m => {
             movies.push(new MovieListItem(m.genres.map(g => g.name), m.name, m.alternativeName, m.year,
-                m.movieLength, m.id, m.poster.previewUrl))
+                m.movieLength, m.id, m.poster.previewUrl, m.countries))
         })
         response.json(movies);
     })
 }
 
 exports.getMovieById = (req, response) => {
-    axios.get('https://api.kinopoisk.dev/movie', {
+    axios.get('https://api.kinopoisk.dev/v1/movie', {
         params: {
-            token: 'ZQQ8GMN-TN54SGK-NB3MKEC-ZKB8V06',
+            token: 'ZKQSQM2-H8DMP6W-JA19DEP-RSBCV3M',
             selectFields: 'genres name alternativeName year movieLength id poster.previewUrl',
             field: 'id',
             search: req.params.id
         }
     }).then(res => {
-        let m = res.data;
+        let m = res.data.docs[0];
         let movieListItem = new MovieListItem(m.genres.map(g => g.name), m.name, m.alternativeName, m.year,
             m.movieLength, m.id, m.poster.previewUrl);
         response.json(movieListItem);
