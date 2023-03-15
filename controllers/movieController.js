@@ -4,7 +4,7 @@ const MovieListItem = require("../models/movieListItem");
 exports.getAll = (req, response) => {
     axios.get('https://api.kinopoisk.dev/movie', {
         params: {
-            token: 'ZQQ8GMN-TN54SGK-NB3MKEC-ZKB8V06',
+            token: '68GHZCT-9P744TW-PATFQBS-E8M9YA9',
             search: '7-10',
             field: 'rating.kp',
             limit: '100',
