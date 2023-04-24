@@ -2,9 +2,11 @@ const Comment = require("../models/comment.js");
 
 exports.addComment = (req, res) => {
     let comment = new Comment({
-        movieId: req.movieId,
-        text: req.text,
-        userId: req.userId
+        movieId: req.body.movieId,
+        text: req.body.text,
+        userId: req.body.userId,
+        timestamp: req.body.timestamp
     });
-    Comment.collection.insertOne(comment).then(e => console.log(e));
+    comment.save();
+    res.send('norm norm')
 }
