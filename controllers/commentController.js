@@ -10,3 +10,9 @@ exports.addComment = (req, res) => {
     comment.save();
     res.send('norm norm')
 }
+
+exports.getCommentsByMovieId = async (req, res) => {
+    let id = req.params.id;
+    let comments = await Comment.find({movieId: id})
+    res.json(comments);
+}
