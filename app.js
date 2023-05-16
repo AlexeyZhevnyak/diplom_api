@@ -7,6 +7,7 @@ const {connect} = require("./database/database");
 const usersRouter = require('./routes/users');
 const movieRouter = require("./routes/movies");
 const commentRouter = require("./routes/comment");
+const reviewRouter = require("./routes/review");
 const cors = require("cors");
 connect().then(v => console.log(v));
 
@@ -27,5 +28,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
 app.use('/movies', movieRouter)
 app.use('/comments', commentRouter)
+app.use('/reviews', reviewRouter)
 
 module.exports = app;

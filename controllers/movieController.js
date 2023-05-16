@@ -4,7 +4,7 @@ const MovieListItem = require("../models/movieListItem");
 exports.getAll = (req, response) => {
     axios.get('https://api.kinopoisk.dev/movie', {
         params: {
-            token: 'ZKQSQM2-H8DMP6W-JA19DEP-RSBCV3M',
+            token: 'P5KPXSA-Q1H423N-PFVHART-RPKHG4A',
             search: '7-10',
             field: 'rating.kp',
             limit: '100',
@@ -24,7 +24,7 @@ exports.getAll = (req, response) => {
 exports.getMovieListItems = (req, response) => {
     axios.get('https://api.kinopoisk.dev/v1/movie', {
         params: {
-            token: 'ZKQSQM2-H8DMP6W-JA19DEP-RSBCV3M',
+            token: 'P5KPXSA-Q1H423N-PFVHART-RPKHG4A',
             search: '7-10',
             field: 'rating.kp',
             limit: '100',
@@ -45,7 +45,7 @@ exports.getMovieListItems = (req, response) => {
 exports.getMovieById = (req, response) => {
     axios.get(`https://api.kinopoisk.dev/v1/movie/${req.params.id}`, {
         params: {
-            token: 'ZKQSQM2-H8DMP6W-JA19DEP-RSBCV3M',
+            token: 'P5KPXSA-Q1H423N-PFVHART-RPKHG4A',
             // selectFields: 'genres name alternativeName year movieLength id poster.previewUrl',
         }
     }).then(res => {
