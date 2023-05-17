@@ -13,11 +13,14 @@ const reviewScheme = new Schema({
         default: [],
         required: false
     },
-    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ReviewComment', required: false }],
+    // comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ReviewComment', required: false }],
     likes: {
         type: Number,
         required: false
-    }
+    },
+    posterUrl: String,
+    movieName: String,
+    movieYear: String
 });
 const Review = mongoose.model("Review", reviewScheme);
 module.exports = Review;
