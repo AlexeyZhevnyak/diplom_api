@@ -38,7 +38,7 @@ exports.login = async function (req, res, next) {
     const {email, password} = req.body
     const user = await User.findOne({email: email})
     if (!user) {
-        return next(ApiError.internal('Пользователь не найден'))
+        return next(ApiError.forbidden('Пользователь не найден'))
     }
     let comparePassword = bcrypt.compareSync(password, user.password)
     if (!comparePassword) {

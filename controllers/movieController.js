@@ -22,7 +22,7 @@ exports.getAll = (req, response) => {
 }
 
 exports.getMovieListItems = (req, response) => {
-    axios.get('https://api.kinopoisk.dev/v1/movie', {
+    axios.get('https://api.kinopoisk.dev/v1.3/movie', {
         params: {
             token: 'P5KPXSA-Q1H423N-PFVHART-RPKHG4A',
             search: '7-10',
@@ -45,7 +45,7 @@ exports.getMovieListItems = (req, response) => {
 exports.getMovieById = (req, response) => {
     axios.get(`https://api.kinopoisk.dev/v1/movie/${req.params.id}`, {
         params: {
-            token: 'P5KPXSA-Q1H423N-PFVHART-RPKHG4A',
+            token: '596ENET-MYE44FZ-NK901FZ-6VKE5W8',
             // selectFields: 'genres name alternativeName year movieLength id poster.previewUrl',
         }
     }).then(res => {

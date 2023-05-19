@@ -16,7 +16,8 @@ const reviewScheme = new Schema({
     // comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ReviewComment', required: false }],
     likes: {
         type: Number,
-        required: false
+        required: false,
+        default: 0
     },
     posterUrl: String,
     movieName: String,
